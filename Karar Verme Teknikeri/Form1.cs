@@ -117,9 +117,220 @@ namespace Karar_Verme_Teknikeri
                 {
                     if (dogaldurum == 0)
                     {
-                        toplam = Convert.ToInt32(TextKutu[1, 1].Text);
-                        /*label6.Text = Convert.ToString(toplam);*/
+                        /*Doğal Satır Adedi 1 tane */
+                        /*iyimserlik hesaplama*/
+                        for (int i = 1; i < satir; i++)
+                        {
+                            for (int j = 1; j < sutun; j++)
+                            {
+                                iyimser = Convert.ToInt32(TextKutu[i, j].Text);
+                                if (iyimser > iyimserdeger)
+                                {
+                                    iyimserdeger = iyimser;
+                                    iyimseralternatif = i;
+                                }
+
+                            }
+                        }
+
+                        /*kötümserlik hesaplama*/
+                        kotumsersatirbuyuk = Convert.ToInt32(TextKutu[1, 1].Text);
+                        for (int i = 1; i < 2; i++)
+                        {
+                            for (int j = 1; j < sutun; j++)
+                            {
+                                kotumser = Convert.ToInt32(TextKutu[i, j].Text);
+                                if (kotumser < kotumsersatirbuyuk)
+                                {
+                                    kotumsersatirbuyuk = kotumser;
+                                }
+                            }
+                        }
+
+
+                        for (int i = 1; i < satir; i++)
+                        {
+                            kotumserdeger = Convert.ToInt32(TextKutu[i, 1].Text);
+                            for (int j = 1; j < sutun; j++)
+                            {
+                                kotumser = Convert.ToInt32(TextKutu[i, j].Text);
+                                 /*MessageBox.Show("kötümser  " + kotumser);
+                                 MessageBox.Show("kötümser değer  " + kotumserdeger);*/
+
+                                if (kotumser < kotumserdeger)
+                                {
+                                    kotumserdeger = kotumser;
+                                    /*MessageBox.Show("kotumser sayım kotumser değerden küçük olduğu için yeni kotumser sayım bu oldu" + kotumserdeger);*/
+                                }
+                                if (j == sutun - 1)
+                                {
+                                    /*MessageBox.Show("Sütun Sonuna geldik şuan ki min(max) değerimiz "+kotumsersatirbuyuk);*/
+                                    if (kotumserdeger > kotumsersatirbuyuk)
+                                    {
+                                        kotumsersatirbuyuk = kotumserdeger;
+                                        /*MessageBox.Show("Sütunun sonuna geldik ve bu satırda ki en küçük değer diğer satırda ki en küçük değerden büyük olduğu için yeni sayımız " + kotumsersatirbuyuk);*/
+                                    }
+                                }
+                            }
+                        }
+
+                        /* eş olasılık (laplaca)*/
+                        for (int i = 1; i < satir; i++)
+                        {
+                            esolasılık = Convert.ToInt32(TextKutu[i, 1].Text);
+                            esolasılıksatir = 0;
+                            for (int j = 1; j < sutun; j++)
+                            {
+                                esolasılık = Convert.ToInt32(TextKutu[i, j].Text);
+                                esolasılıksatir = esolasılıksatir + esolasılık;
+                                if (j == sutun - 1)
+                                {
+                                    /*MessageBox.Show("Son sütuna geldik sütunların toplamı = " + esolasılıksatir);*/
+                                    esolasılıkdeger = Convert.ToDouble((esolasılıksatir) / (sutun - 1));
+                                    if (esolasılıkdeger > esolasılıkdegerbuyuk)
+                                    {
+                                        esolasılıkdegerbuyuk = esolasılıkdeger;
+                                        /*MessageBox.Show("Önceki Sütundan büyük olduğu için yeni eş değerimiz " + esolasılıkdegerbuyuk);*/
+                                    }
+                                }
+
+                            }
+                        }
+
+                        /* Hurwics hesaplama */
+
+                        for (int i = 1; i < satir; i++)
+                        {
+                            hurwicsbuyuk = Convert.ToInt32(TextKutu[i, 1].Text);
+                            hurwicskucuk = Convert.ToInt32(TextKutu[i, 1].Text);
+                            for (int j = 1; j < sutun; j++)
+                            {
+                                hurwics = Convert.ToInt32(TextKutu[i, j].Text);
+                                /*MessageBox.Show("Şuan ki hurwics değerim " + hurwics);*/
+                                if (hurwics > hurwicsbuyuk)
+                                {
+                                    hurwicsbuyuk = hurwics;
+                                    /*MessageBox.Show("Şuan ki hurwics buyuk degerim " + hurwicsbuyuk);*/
+                                }
+                                if (hurwics < hurwicskucuk)
+                                {
+                                    hurwicskucuk = hurwics;
+                                    /*MessageBox.Show("Şuan ki hurwics küçük değerim " + hurwicskucuk);*/
+                                }
+                                if (j == sutun - 1)
+                                {
+                                    hurwicssatirbuyuk = hurwicsbuyuk;
+                                    hurwicssatirkucuk = hurwicskucuk;
+                                    /*MessageBox.Show("Sonuncu Sütuna geldim ve bu satırda ki en büyük sayı " + hurwicssatirbuyuk+" en küçük sayı ise "+hurwicssatirkucuk);*/
+                                    alfaeksi = 1 - Convert.ToDouble(alfadegeri.Text);
+                                    alfaartı = Convert.ToDouble(alfadegeri.Text);
+                                    /*MessageBox.Show("Şuan ki alfa değerim " + alfaartı+" ve 1 alfa değerim "+alfaeksi);*/
+                                    hurwicsdegeri = (alfaartı * hurwicssatirbuyuk) + (hurwicssatirkucuk * alfaeksi);
+                                    /*MessageBox.Show("Şuan ki hurwicsdeğeri değerim " + hurwicsdegeri);*/
+                                    if (hurwicsdegeri > hurwicssonuc)
+                                    {
+                                        hurwicssonuc = hurwicsdegeri;
+                                        /*MessageBox.Show("Hurwicsdegeri degerim yani şuan ki satır değerim önce ki hurwics değerimden büyük olduğu için sonuç değerim " + hurwicssonuc);*/
+                                    }
+                                }
+
+                            }
+                        }
+
+                        /* Pişmanlık Değeri Hesaplama */
+                        int[,] pismanliktablo = new int[satir, sutun];
+
+                        for (int i = 1; i < sutun; i++)
+                        {
+                            pismanliksutunbuyuk = Convert.ToInt32(TextKutu[1, i].Text);
+                            pismanliksutunenbuyuk = Convert.ToInt32(TextKutu[1, i].Text);
+                            for (int j = 1; j < satir; j++)
+                            {
+                                pismanlik = Convert.ToInt32(TextKutu[j, i].Text);
+                                MessageBox.Show(" Şuan ki pişmanlık sayım " + pismanlik);
+                                if (pismanlik > pismanliksutunbuyuk)
+                                {
+                                    pismanliksutunbuyuk = pismanlik;
+                                    MessageBox.Show(" pişmanlık sayım pişmanlık sütun büyük değerimden büyük oluğu için sütun büyük değişkenimin yeni sayısı" + pismanliksutunbuyuk);
+                                }
+                                if (j == satir - 1)
+                                {
+                                    pismanliksutunenbuyuk = pismanliksutunbuyuk;
+                                    MessageBox.Show(" sütunumun sonuna geldim ve sütunda ki en büyük sayım " + pismanliksutunenbuyuk);
+                                    int l;
+                                    l = i;
+
+                                    MessageBox.Show(" L değerim  yani kaçıncı sütunda olduğum" + l);
+                                    for (int m = 1; m < satir; m++)
+                                    {
+                                        pismanliksutunfark = pismanliksutunenbuyuk - Convert.ToInt32(TextKutu[m, l].Text);
+                                        pismanliktablo[m, l] = pismanliksutunfark;
+                                        MessageBox.Show(m - 1+". satırın o sütunda ki en büyük değerle olan farkı "+pismanliksutunfark);
+                                    }
+                                }
+
+                            }
+
+                        }
+                        pismanliktablosubuyuk = pismanliktablo[1, 1];
+                        for (int i = 1; i < 2; i++)
+                        {
+                            for (int j = 1; j < sutun; j++)
+                            {
+                                pismanliktablosudeğeri = pismanliktablo[i, j];
+                                if (pismanliktablosudeğeri > pismanliktablosubuyuk)
+                                {
+                                    pismanliktablosubuyuk = pismanliktablosudeğeri;
+                                }
+                            }
+                        }
+                        pismanliktablosusatirkucuk = pismanliktablo[1, 1];
+                        for (int i = 1; i < 2; i++)
+                        {
+                            for (int j = 1; j < sutun; j++)
+                            {
+                                pismanliktablosudeğeri = pismanliktablo[i, j];
+                                if (pismanliktablosudeğeri > pismanliktablosusatirkucuk)
+                                {
+                                    pismanliktablosusatirkucuk = pismanliktablosudeğeri;
+                                }
+                            }
+                        }
+
+
+                        for (int i = 1; i < satir; i++)
+                        {
+                            pismanliktablosubuyuk = pismanliktablo[i, 1];
+                            for (int j = 1; j < sutun; j++)
+                            {
+                                pismanliktablosudeğeri = pismanliktablo[i, j];
+                                MessageBox.Show("Pişmanlık tablosu değeri " + pismanliktablosudeğeri);
+
+                                if (pismanliktablosudeğeri > pismanliktablosubuyuk)
+                                {
+                                    pismanliktablosubuyuk = pismanliktablosudeğeri;
+                                    MessageBox.Show("Pişmanlık tablosu değeri pişmanlık tablosu buyuk değerinden büyük olduğu için yeni pişmanlık tablosu büyük değerimiz " + pismanliktablosubuyuk);
+
+                                }
+                                if (j == sutun - 1)
+                                {
+                                    MessageBox.Show("satırın sonuna geldik ve pismanlık tablosu buyuk değerim "+pismanliktablosubuyuk);
+                                    if (pismanliktablosubuyuk < pismanliktablosusatirkucuk)
+                                    {
+                                        pismanliktablosusatirkucuk = pismanliktablosubuyuk;
+                                        MessageBox.Show("bu satırda ki en büyük değer bir önce ki satırda ki en büyük değerden daha küçük olduğu için yeni değerimiz "+pismanliktablosusatirkucuk);
+                                    }
+                                }
+                            }
+                        }
+                        /*sonuç değeri (denemelik)*/
+                        iyimserform.Text = Convert.ToString(iyimserdeger);
+                        kotumserform.Text = Convert.ToString(kotumsersatirbuyuk);
+                        esolasilikform.Text = Convert.ToString(esolasılıkdegerbuyuk);
+                        hurwicsform.Text = Convert.ToString(hurwicssonuc);
+                        pismanlikform.Text = Convert.ToString(pismanliktablosusatirkucuk);
                     }
+                    /* doğal durum satır adedi 2 adet*/
                     else if (dogaldurum == 1)
                     {
                         /*iyimserlik hesaplama*/
@@ -290,6 +501,18 @@ namespace Karar_Verme_Teknikeri
                         }
 
                         pismanliktablosusatirkucuk = pismanliktablo[2, 1];
+                        for (int i = 2; i < 3; i++)
+                        {
+                            for (int j = 1; j < sutun; j++)
+                            {
+                                pismanliktablosudeğeri = pismanliktablo[i, j];
+                                if (pismanliktablosudeğeri > pismanliktablosusatirkucuk)
+                                {
+                                    pismanliktablosusatirkucuk = pismanliktablosudeğeri;
+                                }
+                            }
+                        }
+
                         for (int i = 2; i < satir; i++)
                         {
                             pismanliktablosubuyuk = pismanliktablo[i, 1];
