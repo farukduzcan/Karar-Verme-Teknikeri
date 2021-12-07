@@ -240,6 +240,7 @@ namespace Karar_Verme_Teknikeri
 
                             }
                         }
+                        int yunus;
 
                         /* Pişmanlık Değeri Hesaplama */
                         int[,] pismanliktablo = new int[satir, sutun];
