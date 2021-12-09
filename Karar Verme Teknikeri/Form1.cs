@@ -79,8 +79,25 @@ namespace Karar_Verme_Teknikeri
             yapibilgi.Visible = false;
             doğalsutunbilgi.Visible = false;
             alfadegeribilgi.Visible = false;
-        }
+            hesapbuton.Visible = true;
+            groupBox1.Visible = false;
+            tablosifirlaform.Visible = true;
+            sayisifirlaform.Visible = true;
 
+            if (dogaldurumsatir.SelectedIndex == 0)
+            {
+                TextKutu[0, 0].Visible = false;
+                alternatifler2.Visible = true;
+            }
+            else if (dogaldurumsatir.SelectedIndex == 1)
+            {
+                TextKutu[0, 0].Visible = false;
+                TextKutu[1, 0].Visible = false;
+                alternatifbilgiform.Visible = true;
+                
+            }
+        }
+        
 
         int iyimser;
         int iyimserdeger = 0;
@@ -580,7 +597,7 @@ namespace Karar_Verme_Teknikeri
                 // ----------------------MALİYET YAPILI---------------------------
                 else if (yapi == 1)
                 {
-                    //------------------2 Adet Doğal Durum Satırı-----------------
+                    //------------------1 Adet Doğal Durum Satırı-----------------
                     if (dogaldurum == 0)
                     {
                         /*Doğal Satır Adedi 1 tane */
@@ -1140,19 +1157,55 @@ namespace Karar_Verme_Teknikeri
                                                                 "--> Hurwics Ölçütüne Göre Verilen Karar: \n     ➥ " + hurwicsalternatif + " (" + hurwicssonuc + ")\n\n" +
                                                                 "--> Pişmanlık Ölçütüne Göre Verilen Karar: \n     ➥ " + pismanlikalternatif + " (" + pismanliktablosusatirkucuk + ")", "Sonuçlar");
 
-                        /*sonuç değeri (denemelik)
-                        iyimserform.Text = Convert.ToString(iyimserdeger);
-                        kotumserform.Text = Convert.ToString(kotumsersatirbuyuk);
-                        esolasilikform.Text = Convert.ToString(esolasılıkdegerbuyuk);
-                        hurwicsform.Text = Convert.ToString(hurwicssonuc);
-                        pismanlikform.Text = Convert.ToString(pismanliktablosusatirkucuk);*/
-
 
                     }
                 }
             }
         }
 
+        private void tablosifirlaform_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < satir; i++)
+            {
+                for (int j = 0; j < sutun; j++)
+                {
+                    TextKutu[i, j].Text = "";
 
+                }
+            }
+
+        }
+
+        private void sayisifirlaform_Click(object sender, EventArgs e)
+        {
+            if (dogaldurumsatir.SelectedIndex == 0)
+            {
+                for (int i = 1; i < satir ; i++)
+                {
+                    for (int j = 1; j < sutun ; j++)
+                    {
+                        TextKutu[i, j].Text = "";
+
+                    }
+                }
+            }
+            else if (dogaldurumsatir.SelectedIndex == 1)
+            {
+                for (int i = 2; i < satir; i++)
+                {
+                    for (int j = 1; j < sutun; j++)
+                    {
+                        TextKutu[i, j].Text = "";
+
+                    }
+                }
+            }
+
+        }
+
+        private void alternatifler2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
