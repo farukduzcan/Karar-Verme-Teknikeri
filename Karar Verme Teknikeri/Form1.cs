@@ -10,26 +10,26 @@ using System.Windows.Forms;
 
 namespace Karar_Verme_Teknikeri
 {
-    public partial class Form1 : Form
+    public partial class anaform : Form
     {
-        public Form1()
+        public anaform()
         {
             InitializeComponent();
         }
 
         TextBox[,] TextKutu;
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
-        }
         int satir;
         int sutun;
         int yapi;
         int dogaldurum;
+
+        
         private void satiradedi_ValueChanged(object sender, EventArgs e)
         {
             satir = Convert.ToInt32(satiradedi.Value);
+
         }
+
         private void sutunadedi_ValueChanged(object sender, EventArgs e)
         {
             sutun = Convert.ToInt32(sutunadedi.Value);
@@ -37,6 +37,7 @@ namespace Karar_Verme_Teknikeri
         private void yapitipi_SelectedIndexChanged(object sender, EventArgs e)
         {
             yapi = yapitipi.SelectedIndex;
+
         }
         private void dogaldurumsatir_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -66,36 +67,78 @@ namespace Karar_Verme_Teknikeri
 
         private void tablobuton_Click(object sender, EventArgs e)
         {
-            KutuOlustur();
-            satiradedi.Visible = false;
-            sutunadedi.Visible = false;
-            yapitipi.Visible = false;
-            tablobuton.Visible = false;
-            dogaldurumsatir.Visible = false;
-            hesapbuton.Visible = true;
-            alfadegeri.Visible = false;
-            satirbilgi.Visible = false;
-            sutunbilgi.Visible = false;
-            yapibilgi.Visible = false;
-            doğalsutunbilgi.Visible = false;
-            alfadegeribilgi.Visible = false;
-            hesapbuton.Visible = true;
-            groupBox1.Visible = false;
-            tablosifirlaform.Visible = true;
-            sayisifirlaform.Visible = true;
+            
+            if (satiradedi.Value >0)
+            {
+                if (sutunadedi.Value>0)
+                {
+                    if (yapitipi.SelectedIndex != -1)
+                    {
+                        if (dogaldurumsatir.SelectedIndex != -1)
+                        {
+                            if (alfadegeri.TextLength != 0)
+                            {
+                                KutuOlustur();
+                                satiradedi.Visible = false;
+                                sutunadedi.Visible = false;
+                                yapitipi.Visible = false;
+                                tablobuton.Visible = false;
+                                dogaldurumsatir.Visible = false;
+                                hesapbuton.Visible = true;
+                                alfadegeri.Visible = false;
+                                satirbilgi.Visible = false;
+                                sutunbilgi.Visible = false;
+                                yapibilgi.Visible = false;
+                                doğalsutunbilgi.Visible = false;
+                                alfadegeribilgi.Visible = false;
+                                hesapbuton.Visible = true;
+                                groupBox1.Visible = false;
+                                tablosifirlaform.Visible = true;
+                                sayisifirlaform.Visible = true;
+                                dogaldurumbilgiform.Visible = true;
+                                sorusatir.Visible = false;
+                                sutuninfo.Visible = false;
+                                dogalduruminfo.Visible = false;
+                                if (dogaldurumsatir.SelectedIndex == 0)
+                                {
+                                    TextKutu[0, 0].Visible = false;
+                                    alternatifler2.Visible = true;
+                                }
+                                else if (dogaldurumsatir.SelectedIndex == 1)
+                                {
+                                    TextKutu[0, 0].Visible = false;
+                                    TextKutu[1, 0].Visible = false;
+                                    alternatifbilgiform.Visible = true;
 
-            if (dogaldurumsatir.SelectedIndex == 0)
-            {
-                TextKutu[0, 0].Visible = false;
-                alternatifler2.Visible = true;
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Alfa Değeri Girilmedi!", "HATA");
+                            }
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Doğal Durum Satır Adedini Seçiniz!", "HATA");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Yapı Tipini Seçiniz!", "HATA");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Lütfen Sütun Adedine 0'dan büyük bir sayı girin", "HATA");
+                }
             }
-            else if (dogaldurumsatir.SelectedIndex == 1)
+            else
             {
-                TextKutu[0, 0].Visible = false;
-                TextKutu[1, 0].Visible = false;
-                alternatifbilgiform.Visible = true;
-                
+                MessageBox.Show("Lütfen Ssatır Adedine 0'dan büyük bir sayı girin", "HATA");
             }
+
+
         }
         
 
@@ -1207,5 +1250,7 @@ namespace Karar_Verme_Teknikeri
         {
 
         }
+
+
     }
 }
