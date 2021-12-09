@@ -29,6 +29,7 @@ namespace Karar_Verme_Teknikeri
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.dogaldurumsatir = new System.Windows.Forms.ComboBox();
             this.yapitipi = new System.Windows.Forms.ComboBox();
             this.satirbilgi = new System.Windows.Forms.Label();
@@ -39,18 +40,8 @@ namespace Karar_Verme_Teknikeri
             this.yapibilgi = new System.Windows.Forms.Label();
             this.doğalsutunbilgi = new System.Windows.Forms.Label();
             this.alfadegeribilgi = new System.Windows.Forms.Label();
-            this.İyimserbilgi = new System.Windows.Forms.Label();
-            this.kotumserbilgi = new System.Windows.Forms.Label();
-            this.esolasilikbilgi = new System.Windows.Forms.Label();
-            this.hurwicsbilgi = new System.Windows.Forms.Label();
-            this.pismanlikbilgi = new System.Windows.Forms.Label();
             this.tablobuton = new System.Windows.Forms.Button();
             this.hesapbuton = new System.Windows.Forms.Button();
-            this.iyimserform = new System.Windows.Forms.Label();
-            this.kotumserform = new System.Windows.Forms.Label();
-            this.esolasilikform = new System.Windows.Forms.Label();
-            this.hurwicsform = new System.Windows.Forms.Label();
-            this.pismanlikform = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.satiradedi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sutunadedi)).BeginInit();
             this.SuspendLayout();
@@ -154,51 +145,6 @@ namespace Karar_Verme_Teknikeri
             this.alfadegeribilgi.TabIndex = 9;
             this.alfadegeribilgi.Text = "Alfa Değerini Giriniz";
             // 
-            // İyimserbilgi
-            // 
-            this.İyimserbilgi.AutoSize = true;
-            this.İyimserbilgi.Location = new System.Drawing.Point(43, 338);
-            this.İyimserbilgi.Name = "İyimserbilgi";
-            this.İyimserbilgi.Size = new System.Drawing.Size(71, 13);
-            this.İyimserbilgi.TabIndex = 10;
-            this.İyimserbilgi.Text = "İyimser Değer";
-            // 
-            // kotumserbilgi
-            // 
-            this.kotumserbilgi.AutoSize = true;
-            this.kotumserbilgi.Location = new System.Drawing.Point(140, 338);
-            this.kotumserbilgi.Name = "kotumserbilgi";
-            this.kotumserbilgi.Size = new System.Drawing.Size(83, 13);
-            this.kotumserbilgi.TabIndex = 11;
-            this.kotumserbilgi.Text = "Kötümser Değer";
-            // 
-            // esolasilikbilgi
-            // 
-            this.esolasilikbilgi.AutoSize = true;
-            this.esolasilikbilgi.Location = new System.Drawing.Point(250, 338);
-            this.esolasilikbilgi.Name = "esolasilikbilgi";
-            this.esolasilikbilgi.Size = new System.Drawing.Size(55, 13);
-            this.esolasilikbilgi.TabIndex = 12;
-            this.esolasilikbilgi.Text = "Eş Olasılık";
-            // 
-            // hurwicsbilgi
-            // 
-            this.hurwicsbilgi.AutoSize = true;
-            this.hurwicsbilgi.Location = new System.Drawing.Point(328, 338);
-            this.hurwicsbilgi.Name = "hurwicsbilgi";
-            this.hurwicsbilgi.Size = new System.Drawing.Size(45, 13);
-            this.hurwicsbilgi.TabIndex = 13;
-            this.hurwicsbilgi.Text = "Hurwics";
-            // 
-            // pismanlikbilgi
-            // 
-            this.pismanlikbilgi.AutoSize = true;
-            this.pismanlikbilgi.Location = new System.Drawing.Point(399, 338);
-            this.pismanlikbilgi.Name = "pismanlikbilgi";
-            this.pismanlikbilgi.Size = new System.Drawing.Size(85, 13);
-            this.pismanlikbilgi.TabIndex = 14;
-            this.pismanlikbilgi.Text = "Pişmanlık Ölçütü";
-            // 
             // tablobuton
             // 
             this.tablobuton.Location = new System.Drawing.Point(369, 204);
@@ -219,63 +165,13 @@ namespace Karar_Verme_Teknikeri
             this.hesapbuton.UseVisualStyleBackColor = true;
             this.hesapbuton.Click += new System.EventHandler(this.hesapbuton_Click);
             // 
-            // iyimserform
-            // 
-            this.iyimserform.AutoSize = true;
-            this.iyimserform.Location = new System.Drawing.Point(46, 384);
-            this.iyimserform.Name = "iyimserform";
-            this.iyimserform.Size = new System.Drawing.Size(0, 13);
-            this.iyimserform.TabIndex = 17;
-            // 
-            // kotumserform
-            // 
-            this.kotumserform.AutoSize = true;
-            this.kotumserform.Location = new System.Drawing.Point(143, 384);
-            this.kotumserform.Name = "kotumserform";
-            this.kotumserform.Size = new System.Drawing.Size(0, 13);
-            this.kotumserform.TabIndex = 18;
-            // 
-            // esolasilikform
-            // 
-            this.esolasilikform.AutoSize = true;
-            this.esolasilikform.Location = new System.Drawing.Point(253, 384);
-            this.esolasilikform.Name = "esolasilikform";
-            this.esolasilikform.Size = new System.Drawing.Size(0, 13);
-            this.esolasilikform.TabIndex = 19;
-            // 
-            // hurwicsform
-            // 
-            this.hurwicsform.AutoSize = true;
-            this.hurwicsform.Location = new System.Drawing.Point(331, 384);
-            this.hurwicsform.Name = "hurwicsform";
-            this.hurwicsform.Size = new System.Drawing.Size(0, 13);
-            this.hurwicsform.TabIndex = 20;
-            // 
-            // pismanlikform
-            // 
-            this.pismanlikform.AutoSize = true;
-            this.pismanlikform.Location = new System.Drawing.Point(402, 384);
-            this.pismanlikform.Name = "pismanlikform";
-            this.pismanlikform.Size = new System.Drawing.Size(0, 13);
-            this.pismanlikform.TabIndex = 21;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.pismanlikform);
-            this.Controls.Add(this.hurwicsform);
-            this.Controls.Add(this.esolasilikform);
-            this.Controls.Add(this.kotumserform);
-            this.Controls.Add(this.iyimserform);
             this.Controls.Add(this.hesapbuton);
             this.Controls.Add(this.tablobuton);
-            this.Controls.Add(this.pismanlikbilgi);
-            this.Controls.Add(this.hurwicsbilgi);
-            this.Controls.Add(this.esolasilikbilgi);
-            this.Controls.Add(this.kotumserbilgi);
-            this.Controls.Add(this.İyimserbilgi);
             this.Controls.Add(this.alfadegeribilgi);
             this.Controls.Add(this.doğalsutunbilgi);
             this.Controls.Add(this.yapibilgi);
@@ -286,8 +182,10 @@ namespace Karar_Verme_Teknikeri
             this.Controls.Add(this.satirbilgi);
             this.Controls.Add(this.yapitipi);
             this.Controls.Add(this.dogaldurumsatir);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Belirsizlik Altında Karar Verme Teknikleri Hesaplama [Ömer Faruk Duzcan -- Şeyma " +
+    "Nur Karadağ -- Aydın Bayramov]";
             ((System.ComponentModel.ISupportInitialize)(this.satiradedi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sutunadedi)).EndInit();
             this.ResumeLayout(false);
@@ -307,18 +205,8 @@ namespace Karar_Verme_Teknikeri
         private System.Windows.Forms.Label yapibilgi;
         private System.Windows.Forms.Label doğalsutunbilgi;
         private System.Windows.Forms.Label alfadegeribilgi;
-        private System.Windows.Forms.Label İyimserbilgi;
-        private System.Windows.Forms.Label kotumserbilgi;
-        private System.Windows.Forms.Label esolasilikbilgi;
-        private System.Windows.Forms.Label hurwicsbilgi;
-        private System.Windows.Forms.Label pismanlikbilgi;
         private System.Windows.Forms.Button tablobuton;
         private System.Windows.Forms.Button hesapbuton;
-        private System.Windows.Forms.Label iyimserform;
-        private System.Windows.Forms.Label kotumserform;
-        private System.Windows.Forms.Label esolasilikform;
-        private System.Windows.Forms.Label hurwicsform;
-        private System.Windows.Forms.Label pismanlikform;
     }
 }
 
