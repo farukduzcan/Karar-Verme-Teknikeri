@@ -77,73 +77,81 @@ namespace Karar_Verme_Teknikeri
                     {
                         if (dogaldurumsatir.SelectedIndex != -1)
                         {
-                            if (Convert.ToDouble (alfag.Text)> 0)
+                            if (alfag.TextLength != 0)
                             {
-                                if (Convert.ToDouble(alfag.Text)< 1)
+                                if (Convert.ToDouble(alfag.Text) > 0)
                                 {
-                                    KutuOlustur();
-                                    satiradedi.Visible = false;
-                                    sutunadedi.Visible = false;
-                                    yapitipi.Visible = false;
-                                    tablobuton.Visible = false;
-                                    dogaldurumsatir.Visible = false;
-                                    hesapbuton.Visible = true;
-                                    alfag.Visible = false;
-                                    satirbilgi.Visible = false;
-                                    sutunbilgi.Visible = false;
-                                    yapibilgi.Visible = false;
-                                    doğalsutunbilgi.Visible = false;
-                                    alfadegeribilgi.Visible = false;
-                                    hesapbuton.Visible = true;
-                                    groupBox1.Visible = false;
-                                    tablosifirlaform.Visible = true;
-                                    sayisifirlaform.Visible = true;
-                                    dogaldurumbilgiform.Visible = true;
-                                    tusgrubu.Visible = true;
-                                    geri.Visible = true;
-                                    cikis.Visible = true;
-                                    if (dogaldurumsatir.SelectedIndex == 0)
+                                    if (Convert.ToDouble(alfag.Text) < 1)
                                     {
-                                        TextKutu[0, 0].Visible = false;
-                                        alternatifler2.Visible = true;
-                                        for (int j = 1; j < sutun; j++)
+                                        KutuOlustur();
+                                        satiradedi.Visible = false;
+                                        sutunadedi.Visible = false;
+                                        yapitipi.Visible = false;
+                                        tablobuton.Visible = false;
+                                        dogaldurumsatir.Visible = false;
+                                        hesapbuton.Visible = true;
+                                        alfag.Visible = false;
+                                        satirbilgi.Visible = false;
+                                        sutunbilgi.Visible = false;
+                                        yapibilgi.Visible = false;
+                                        doğalsutunbilgi.Visible = false;
+                                        alfadegeribilgi.Visible = false;
+                                        hesapbuton.Visible = true;
+                                        groupBox1.Visible = false;
+                                        tablosifirlaform.Visible = true;
+                                        sayisifirlaform.Visible = true;
+                                        dogaldurumbilgiform.Visible = true;
+                                        tusgrubu.Visible = true;
+                                        geri.Visible = true;
+                                        cikis.Visible = true;
+                                        if (dogaldurumsatir.SelectedIndex == 0)
                                         {
-                                            TextKutu[0, j].BackColor = Color.WhiteSmoke;
-                                        }
-                                        for (int j = 1; j < satir; j++)
-                                        {
-                                            TextKutu[j, 0].BackColor = Color.WhiteSmoke;
-                                        }
-                                    }
-                                    else if (dogaldurumsatir.SelectedIndex == 1)
-                                    {
-                                        TextKutu[0, 0].Visible = false;
-                                        TextKutu[1, 0].Visible = false;
-                                        alternatifbilgiform.Visible = true;
-                                        for (int i = 0; i < 2; i++)
-                                        {
+                                            TextKutu[0, 0].Visible = false;
+                                            alternatifler2.Visible = true;
                                             for (int j = 1; j < sutun; j++)
                                             {
-                                                TextKutu[i, j].BackColor = Color.Lavender;
+                                                TextKutu[0, j].BackColor = Color.WhiteSmoke;
                                             }
-                                            for (int j = 2; j < satir; j++)
+                                            for (int j = 1; j < satir; j++)
                                             {
-                                                TextKutu[j, 0].BackColor = Color.Lavender;
+                                                TextKutu[j, 0].BackColor = Color.WhiteSmoke;
                                             }
                                         }
-                                
-                                    }
+                                        else if (dogaldurumsatir.SelectedIndex == 1)
+                                        {
+                                            TextKutu[0, 0].Visible = false;
+                                            TextKutu[1, 0].Visible = false;
+                                            alternatifbilgiform.Visible = true;
+                                            for (int i = 0; i < 2; i++)
+                                            {
+                                                for (int j = 1; j < sutun; j++)
+                                                {
+                                                    TextKutu[i, j].BackColor = Color.Lavender;
+                                                }
+                                                for (int j = 2; j < satir; j++)
+                                                {
+                                                    TextKutu[j, 0].BackColor = Color.Lavender;
+                                                }
+                                            }
 
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("1'den küçük bir Alfa değeri giriniz!", "HATA");
+                                    }
                                 }
                                 else
                                 {
-                                    MessageBox.Show("1'den küçük bir Alfa değeri giriniz!", "HATA");
+                                    MessageBox.Show("0'dan Büyük bir Alfa değeri giriniz!", "HATA");
                                 }
                             }
                             else
                             {
-                                MessageBox.Show("0'dan Büyük bir Alfa değeri giriniz!", "HATA");
+                                MessageBox.Show(" Lütfen Alfa değeri girin");
                             }
+                           
 
                         }
                         else
@@ -163,7 +171,7 @@ namespace Karar_Verme_Teknikeri
             }
             else
             {
-                MessageBox.Show("Lütfen Ssatır Adedine 0'dan büyük bir sayı girin", "HATA");
+                MessageBox.Show("Lütfen Satır Adedine 0'dan büyük bir sayı girin", "HATA");
             }
 
 
@@ -1319,10 +1327,6 @@ namespace Karar_Verme_Teknikeri
         private void cikis_MouseClick(object sender, MouseEventArgs e)
         {
             Application.Exit();
-        }
-
-        private void alfadegeri_KeyPress(object sender, KeyPressEventArgs e)
-        {
         }
     }
 }

@@ -138,7 +138,6 @@ namespace Karar_Verme_Teknikeri
             this.alfag.Name = "alfag";
             this.alfag.Size = new System.Drawing.Size(100, 20);
             this.alfag.TabIndex = 5;
-            this.alfag.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.alfadegeri_KeyPress);
             // 
             // yapibilgi
             // 
