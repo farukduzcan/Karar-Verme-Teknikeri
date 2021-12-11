@@ -42,11 +42,13 @@ namespace Karar_Verme_Teknikeri
         private void dogaldurumsatir_SelectedIndexChanged(object sender, EventArgs e)
         {
             dogaldurum = dogaldurumsatir.SelectedIndex;
+            satir = satir + (Convert.ToInt32(dogaldurumsatir.SelectedItem));
+            sutun = sutun + 1;
         }
-
+        
         private void KutuOlustur()
         {
-            TextKutu = new TextBox[satir, sutun];
+            TextKutu = new TextBox[satir , sutun];
             int left = 100;
             int top = 50;
             for (int i = 0; i < satir; i++)
@@ -96,19 +98,38 @@ namespace Karar_Verme_Teknikeri
                                 tablosifirlaform.Visible = true;
                                 sayisifirlaform.Visible = true;
                                 dogaldurumbilgiform.Visible = true;
-                                sorusatir.Visible = false;
-                                sutuninfo.Visible = false;
-                                dogalduruminfo.Visible = false;
+                                tusgrubu.Visible = true;
+                                geri.Visible = true;
+                                cikis.Visible = true;
                                 if (dogaldurumsatir.SelectedIndex == 0)
                                 {
                                     TextKutu[0, 0].Visible = false;
                                     alternatifler2.Visible = true;
+                                    for (int j = 1; j < sutun; j++)
+                                    {
+                                        TextKutu[0, j].BackColor = Color.WhiteSmoke;
+                                    }
+                                    for (int j = 1; j < satir; j++)
+                                    {
+                                        TextKutu[j, 0].BackColor = Color.WhiteSmoke;
+                                    }
                                 }
                                 else if (dogaldurumsatir.SelectedIndex == 1)
                                 {
                                     TextKutu[0, 0].Visible = false;
                                     TextKutu[1, 0].Visible = false;
                                     alternatifbilgiform.Visible = true;
+                                    for (int i = 0; i<2; i++)
+                                    {
+                                        for (int j = 1; j<sutun;j++)
+                                        {
+                                            TextKutu[i, j].BackColor = Color.WhiteSmoke;
+                                        }
+                                        for (int j = 2; j < satir; j++)
+                                        {
+                                            TextKutu[j, 0].BackColor = Color.WhiteSmoke;
+                                        }
+                                    }
 
                                 }
                             }
@@ -1251,6 +1272,46 @@ namespace Karar_Verme_Teknikeri
 
         }
 
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void info_MouseClick(object sender, MouseEventArgs e)
+        {
+            MessageBox.Show("Doğal durum adedi sayısal değerleri gireceğimiz sütunların adedini belirtir \n\n ","Bilgilendirme",MessageBoxButtons.OK,MessageBoxIcon.Information);
+        }
+
+        private void infodogalsatir_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void infodogalsatir_MouseClick(object sender, MouseEventArgs e)
+        {
+            MessageBox.Show(
+                            "Doğal durum satır adedimiz, \n\nProblemimizde ülke koşulları (iyi,aynı,kötü) ve güçlü/zayıf pazar payı gibi iki farklı doğal durum olursa 2 seçilir. \n\n" +
+                            "Sadece kişisel / kurumsal yazılım gibi tek doğal durum varsa 1 seçilir.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void geri_MouseClick(object sender, MouseEventArgs e)
+        {
+            Application.Restart();
+        }
+
+        private void cikis_MouseClick(object sender, MouseEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

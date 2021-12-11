@@ -49,13 +49,16 @@ namespace Karar_Verme_Teknikeri
             this.alternatifbilgiform = new System.Windows.Forms.Label();
             this.alternatifler2 = new System.Windows.Forms.Label();
             this.dogaldurumbilgiform = new System.Windows.Forms.Label();
-            this.sorusatir = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.sutuninfo = new System.Windows.Forms.Label();
-            this.dogalduruminfo = new System.Windows.Forms.Label();
+            this.tusgrubu = new System.Windows.Forms.GroupBox();
+            this.info = new System.Windows.Forms.Label();
+            this.infodogalsatir = new System.Windows.Forms.Label();
+            this.geri = new System.Windows.Forms.Button();
+            this.cikis = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.satiradedi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sutunadedi)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.tusgrubu.SuspendLayout();
             this.SuspendLayout();
             // 
             // dogaldurumsatir
@@ -71,6 +74,7 @@ namespace Karar_Verme_Teknikeri
             this.dogaldurumsatir.Size = new System.Drawing.Size(121, 21);
             this.dogaldurumsatir.TabIndex = 4;
             this.dogaldurumsatir.Text = "Seçiniz";
+            this.toolTip1.SetToolTip(this.dogaldurumsatir, resources.GetString("dogaldurumsatir.ToolTip"));
             this.dogaldurumsatir.SelectedIndexChanged += new System.EventHandler(this.dogaldurumsatir_SelectedIndexChanged);
             // 
             // yapitipi
@@ -92,11 +96,12 @@ namespace Karar_Verme_Teknikeri
             // satirbilgi
             // 
             this.satirbilgi.AutoSize = true;
+            this.satirbilgi.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.satirbilgi.Location = new System.Drawing.Point(180, 131);
             this.satirbilgi.Name = "satirbilgi";
-            this.satirbilgi.Size = new System.Drawing.Size(97, 13);
+            this.satirbilgi.Size = new System.Drawing.Size(117, 13);
             this.satirbilgi.TabIndex = 10;
-            this.satirbilgi.Text = "Satır Adedini Giriniz";
+            this.satirbilgi.Text = "Alternatif Adedini Giriniz";
             // 
             // satiradedi
             // 
@@ -112,19 +117,22 @@ namespace Karar_Verme_Teknikeri
             this.sutunadedi.Name = "sutunadedi";
             this.sutunadedi.Size = new System.Drawing.Size(120, 20);
             this.sutunadedi.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.sutunadedi, "Doğal durum adedi alternatifler sütunu haricinde ki sütunların sayısıdır.");
             this.sutunadedi.ValueChanged += new System.EventHandler(this.sutunadedi_ValueChanged);
             // 
             // sutunbilgi
             // 
             this.sutunbilgi.AutoSize = true;
+            this.sutunbilgi.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.sutunbilgi.Location = new System.Drawing.Point(180, 164);
             this.sutunbilgi.Name = "sutunbilgi";
-            this.sutunbilgi.Size = new System.Drawing.Size(104, 13);
+            this.sutunbilgi.Size = new System.Drawing.Size(138, 13);
             this.sutunbilgi.TabIndex = 11;
-            this.sutunbilgi.Text = "Sütun Adedini Giriniz";
+            this.sutunbilgi.Text = "Doğal Durum Adedini Giriniz";
             // 
             // alfadegeri
             // 
+            this.alfadegeri.BackColor = System.Drawing.SystemColors.Window;
             this.alfadegeri.Location = new System.Drawing.Point(370, 238);
             this.alfadegeri.Name = "alfadegeri";
             this.alfadegeri.Size = new System.Drawing.Size(100, 20);
@@ -133,6 +141,7 @@ namespace Karar_Verme_Teknikeri
             // yapibilgi
             // 
             this.yapibilgi.AutoSize = true;
+            this.yapibilgi.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.yapibilgi.Location = new System.Drawing.Point(180, 191);
             this.yapibilgi.Name = "yapibilgi";
             this.yapibilgi.Size = new System.Drawing.Size(102, 13);
@@ -142,6 +151,7 @@ namespace Karar_Verme_Teknikeri
             // doğalsutunbilgi
             // 
             this.doğalsutunbilgi.AutoSize = true;
+            this.doğalsutunbilgi.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.doğalsutunbilgi.Location = new System.Drawing.Point(180, 218);
             this.doğalsutunbilgi.Name = "doğalsutunbilgi";
             this.doğalsutunbilgi.Size = new System.Drawing.Size(168, 13);
@@ -151,6 +161,7 @@ namespace Karar_Verme_Teknikeri
             // alfadegeribilgi
             // 
             this.alfadegeribilgi.AutoSize = true;
+            this.alfadegeribilgi.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.alfadegeribilgi.Location = new System.Drawing.Point(180, 245);
             this.alfadegeribilgi.Name = "alfadegeribilgi";
             this.alfadegeribilgi.Size = new System.Drawing.Size(98, 13);
@@ -169,7 +180,7 @@ namespace Karar_Verme_Teknikeri
             // 
             // hesapbuton
             // 
-            this.hesapbuton.Location = new System.Drawing.Point(691, 384);
+            this.hesapbuton.Location = new System.Drawing.Point(673, 12);
             this.hesapbuton.Name = "hesapbuton";
             this.hesapbuton.Size = new System.Drawing.Size(97, 40);
             this.hesapbuton.TabIndex = 7;
@@ -180,20 +191,20 @@ namespace Karar_Verme_Teknikeri
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dogalduruminfo);
-            this.groupBox1.Controls.Add(this.sutuninfo);
-            this.groupBox1.Controls.Add(this.sorusatir);
+            this.groupBox1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.groupBox1.Controls.Add(this.infodogalsatir);
+            this.groupBox1.Controls.Add(this.info);
             this.groupBox1.Controls.Add(this.dogaldurumsatir);
             this.groupBox1.Location = new System.Drawing.Point(150, 105);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(467, 225);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Başlangıç";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // tablosifirlaform
             // 
-            this.tablosifirlaform.Location = new System.Drawing.Point(12, 384);
+            this.tablosifirlaform.Location = new System.Drawing.Point(323, 12);
             this.tablosifirlaform.Name = "tablosifirlaform";
             this.tablosifirlaform.Size = new System.Drawing.Size(95, 40);
             this.tablosifirlaform.TabIndex = 8;
@@ -204,7 +215,7 @@ namespace Karar_Verme_Teknikeri
             // 
             // sayisifirlaform
             // 
-            this.sayisifirlaform.Location = new System.Drawing.Point(113, 384);
+            this.sayisifirlaform.Location = new System.Drawing.Point(437, 12);
             this.sayisifirlaform.Name = "sayisifirlaform";
             this.sayisifirlaform.Size = new System.Drawing.Size(95, 40);
             this.sayisifirlaform.TabIndex = 9;
@@ -250,18 +261,6 @@ namespace Karar_Verme_Teknikeri
             this.dogaldurumbilgiform.Text = "Doğal Durumlar ";
             this.dogaldurumbilgiform.Visible = false;
             // 
-            // sorusatir
-            // 
-            this.sorusatir.AutoSize = true;
-            this.sorusatir.Font = new System.Drawing.Font("Cooper Black", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sorusatir.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.sorusatir.Location = new System.Drawing.Point(346, 26);
-            this.sorusatir.Name = "sorusatir";
-            this.sorusatir.Size = new System.Drawing.Size(17, 24);
-            this.sorusatir.TabIndex = 0;
-            this.sorusatir.Text = "i";
-            this.toolTip1.SetToolTip(this.sorusatir, "Satır Adedini Girerken Lütfen Doğal Durumlar Satırlarını da Dahil Ediniz");
-            // 
             // toolTip1
             // 
             this.toolTip1.AutomaticDelay = 1000;
@@ -270,41 +269,82 @@ namespace Karar_Verme_Teknikeri
             this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.toolTip1.ToolTipTitle = "Dikkat!";
             // 
-            // sutuninfo
+            // tusgrubu
             // 
-            this.sutuninfo.AutoSize = true;
-            this.sutuninfo.Font = new System.Drawing.Font("Cooper Black", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sutuninfo.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.sutuninfo.Location = new System.Drawing.Point(346, 46);
-            this.sutuninfo.Name = "sutuninfo";
-            this.sutuninfo.Size = new System.Drawing.Size(17, 24);
-            this.sutuninfo.TabIndex = 1;
-            this.sutuninfo.Text = "i";
-            this.toolTip1.SetToolTip(this.sutuninfo, "Sütun Adedini Girerken Alternatifler Sütununu da Dahil Etmeyi Unutmayınız\r\n");
+            this.tusgrubu.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.tusgrubu.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.tusgrubu.Controls.Add(this.cikis);
+            this.tusgrubu.Controls.Add(this.geri);
+            this.tusgrubu.Controls.Add(this.sayisifirlaform);
+            this.tusgrubu.Controls.Add(this.tablosifirlaform);
+            this.tusgrubu.Controls.Add(this.hesapbuton);
+            this.tusgrubu.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tusgrubu.Location = new System.Drawing.Point(12, 380);
+            this.tusgrubu.Name = "tusgrubu";
+            this.tusgrubu.Size = new System.Drawing.Size(776, 58);
+            this.tusgrubu.TabIndex = 19;
+            this.tusgrubu.TabStop = false;
+            this.tusgrubu.Visible = false;
+            this.tusgrubu.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
-            // dogalduruminfo
+            // info
             // 
-            this.dogalduruminfo.AutoSize = true;
-            this.dogalduruminfo.Font = new System.Drawing.Font("Cooper Black", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dogalduruminfo.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.dogalduruminfo.Location = new System.Drawing.Point(346, 102);
-            this.dogalduruminfo.Name = "dogalduruminfo";
-            this.dogalduruminfo.Size = new System.Drawing.Size(17, 24);
-            this.dogalduruminfo.TabIndex = 5;
-            this.dogalduruminfo.Text = "i";
-            this.toolTip1.SetToolTip(this.dogalduruminfo, resources.GetString("dogalduruminfo.ToolTip"));
+            this.info.AutoSize = true;
+            this.info.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.info.Font = new System.Drawing.Font("Snap ITC", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.info.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.info.Location = new System.Drawing.Point(346, 49);
+            this.info.Name = "info";
+            this.info.Size = new System.Drawing.Size(24, 27);
+            this.info.TabIndex = 5;
+            this.info.Text = "İ";
+            this.info.MouseClick += new System.Windows.Forms.MouseEventHandler(this.info_MouseClick);
+            // 
+            // infodogalsatir
+            // 
+            this.infodogalsatir.AutoSize = true;
+            this.infodogalsatir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.infodogalsatir.Font = new System.Drawing.Font("Snap ITC", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.infodogalsatir.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.infodogalsatir.Location = new System.Drawing.Point(347, 103);
+            this.infodogalsatir.Name = "infodogalsatir";
+            this.infodogalsatir.Size = new System.Drawing.Size(24, 27);
+            this.infodogalsatir.TabIndex = 6;
+            this.infodogalsatir.Text = "İ";
+            this.infodogalsatir.Click += new System.EventHandler(this.infodogalsatir_Click);
+            this.infodogalsatir.MouseClick += new System.Windows.Forms.MouseEventHandler(this.infodogalsatir_MouseClick);
+            // 
+            // geri
+            // 
+            this.geri.Location = new System.Drawing.Point(6, 12);
+            this.geri.Name = "geri";
+            this.geri.Size = new System.Drawing.Size(95, 40);
+            this.geri.TabIndex = 10;
+            this.geri.Text = "Geri";
+            this.geri.UseVisualStyleBackColor = true;
+            this.geri.Visible = false;
+            this.geri.MouseClick += new System.Windows.Forms.MouseEventHandler(this.geri_MouseClick);
+            // 
+            // cikis
+            // 
+            this.cikis.Location = new System.Drawing.Point(107, 12);
+            this.cikis.Name = "cikis";
+            this.cikis.Size = new System.Drawing.Size(95, 40);
+            this.cikis.TabIndex = 11;
+            this.cikis.Text = "Çıkış";
+            this.cikis.UseVisualStyleBackColor = true;
+            this.cikis.Visible = false;
+            this.cikis.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cikis_MouseClick);
             // 
             // anaform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Snow;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dogaldurumbilgiform);
             this.Controls.Add(this.alternatifler2);
             this.Controls.Add(this.alternatifbilgiform);
-            this.Controls.Add(this.sayisifirlaform);
-            this.Controls.Add(this.tablosifirlaform);
-            this.Controls.Add(this.hesapbuton);
             this.Controls.Add(this.tablobuton);
             this.Controls.Add(this.alfadegeribilgi);
             this.Controls.Add(this.doğalsutunbilgi);
@@ -316,6 +356,7 @@ namespace Karar_Verme_Teknikeri
             this.Controls.Add(this.satirbilgi);
             this.Controls.Add(this.yapitipi);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.tusgrubu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "anaform";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -325,6 +366,7 @@ namespace Karar_Verme_Teknikeri
             ((System.ComponentModel.ISupportInitialize)(this.sutunadedi)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tusgrubu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -350,10 +392,12 @@ namespace Karar_Verme_Teknikeri
         private System.Windows.Forms.Label alternatifbilgiform;
         private System.Windows.Forms.Label alternatifler2;
         private System.Windows.Forms.Label dogaldurumbilgiform;
-        private System.Windows.Forms.Label sorusatir;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.Label dogalduruminfo;
-        private System.Windows.Forms.Label sutuninfo;
+        private System.Windows.Forms.GroupBox tusgrubu;
+        private System.Windows.Forms.Label info;
+        private System.Windows.Forms.Label infodogalsatir;
+        private System.Windows.Forms.Button geri;
+        private System.Windows.Forms.Button cikis;
     }
 }
 
