@@ -37,13 +37,15 @@ namespace Karar_Verme_Teknikeri
             this.satiradedi = new System.Windows.Forms.NumericUpDown();
             this.sutunadedi = new System.Windows.Forms.NumericUpDown();
             this.sutunbilgi = new System.Windows.Forms.Label();
-            this.alfadegeri = new System.Windows.Forms.TextBox();
+            this.alfag = new System.Windows.Forms.TextBox();
             this.yapibilgi = new System.Windows.Forms.Label();
             this.doğalsutunbilgi = new System.Windows.Forms.Label();
             this.alfadegeribilgi = new System.Windows.Forms.Label();
             this.tablobuton = new System.Windows.Forms.Button();
             this.hesapbuton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.infodogalsatir = new System.Windows.Forms.Label();
+            this.info = new System.Windows.Forms.Label();
             this.tablosifirlaform = new System.Windows.Forms.Button();
             this.sayisifirlaform = new System.Windows.Forms.Button();
             this.alternatifbilgiform = new System.Windows.Forms.Label();
@@ -51,10 +53,8 @@ namespace Karar_Verme_Teknikeri
             this.dogaldurumbilgiform = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tusgrubu = new System.Windows.Forms.GroupBox();
-            this.info = new System.Windows.Forms.Label();
-            this.infodogalsatir = new System.Windows.Forms.Label();
-            this.geri = new System.Windows.Forms.Button();
             this.cikis = new System.Windows.Forms.Button();
+            this.geri = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.satiradedi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sutunadedi)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -65,6 +65,7 @@ namespace Karar_Verme_Teknikeri
             // 
             this.dogaldurumsatir.AutoCompleteCustomSource.AddRange(new string[] {
             "Maliyet Yapılı"});
+            this.dogaldurumsatir.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.dogaldurumsatir.FormattingEnabled = true;
             this.dogaldurumsatir.Items.AddRange(new object[] {
             "1",
@@ -73,7 +74,6 @@ namespace Karar_Verme_Teknikeri
             this.dogaldurumsatir.Name = "dogaldurumsatir";
             this.dogaldurumsatir.Size = new System.Drawing.Size(121, 21);
             this.dogaldurumsatir.TabIndex = 4;
-            this.dogaldurumsatir.Text = "Seçiniz";
             this.toolTip1.SetToolTip(this.dogaldurumsatir, resources.GetString("dogaldurumsatir.ToolTip"));
             this.dogaldurumsatir.SelectedIndexChanged += new System.EventHandler(this.dogaldurumsatir_SelectedIndexChanged);
             // 
@@ -81,6 +81,8 @@ namespace Karar_Verme_Teknikeri
             // 
             this.yapitipi.AutoCompleteCustomSource.AddRange(new string[] {
             "Getiri Yapılı"});
+            this.yapitipi.BackColor = System.Drawing.SystemColors.Window;
+            this.yapitipi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.yapitipi.FormattingEnabled = true;
             this.yapitipi.Items.AddRange(new object[] {
             "Getiri Yapılı",
@@ -90,7 +92,6 @@ namespace Karar_Verme_Teknikeri
             this.yapitipi.Size = new System.Drawing.Size(121, 21);
             this.yapitipi.TabIndex = 3;
             this.yapitipi.Tag = "";
-            this.yapitipi.Text = "Seçiniz";
             this.yapitipi.SelectedIndexChanged += new System.EventHandler(this.yapitipi_SelectedIndexChanged);
             // 
             // satirbilgi
@@ -126,17 +127,18 @@ namespace Karar_Verme_Teknikeri
             this.sutunbilgi.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.sutunbilgi.Location = new System.Drawing.Point(180, 164);
             this.sutunbilgi.Name = "sutunbilgi";
-            this.sutunbilgi.Size = new System.Drawing.Size(138, 13);
+            this.sutunbilgi.Size = new System.Drawing.Size(178, 13);
             this.sutunbilgi.TabIndex = 11;
-            this.sutunbilgi.Text = "Doğal Durum Adedini Giriniz";
+            this.sutunbilgi.Text = "Doğal Durum (Sütun)  Adedini Giriniz";
             // 
-            // alfadegeri
+            // alfag
             // 
-            this.alfadegeri.BackColor = System.Drawing.SystemColors.Window;
-            this.alfadegeri.Location = new System.Drawing.Point(370, 238);
-            this.alfadegeri.Name = "alfadegeri";
-            this.alfadegeri.Size = new System.Drawing.Size(100, 20);
-            this.alfadegeri.TabIndex = 5;
+            this.alfag.BackColor = System.Drawing.SystemColors.Window;
+            this.alfag.Location = new System.Drawing.Point(220, 137);
+            this.alfag.Name = "alfag";
+            this.alfag.Size = new System.Drawing.Size(100, 20);
+            this.alfag.TabIndex = 5;
+            this.alfag.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.alfadegeri_KeyPress);
             // 
             // yapibilgi
             // 
@@ -195,12 +197,40 @@ namespace Karar_Verme_Teknikeri
             this.groupBox1.Controls.Add(this.infodogalsatir);
             this.groupBox1.Controls.Add(this.info);
             this.groupBox1.Controls.Add(this.dogaldurumsatir);
+            this.groupBox1.Controls.Add(this.alfag);
             this.groupBox1.Location = new System.Drawing.Point(150, 105);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(467, 225);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // infodogalsatir
+            // 
+            this.infodogalsatir.AutoSize = true;
+            this.infodogalsatir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.infodogalsatir.Font = new System.Drawing.Font("Snap ITC", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.infodogalsatir.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.infodogalsatir.Location = new System.Drawing.Point(347, 103);
+            this.infodogalsatir.Name = "infodogalsatir";
+            this.infodogalsatir.Size = new System.Drawing.Size(24, 27);
+            this.infodogalsatir.TabIndex = 6;
+            this.infodogalsatir.Text = "İ";
+            this.infodogalsatir.Click += new System.EventHandler(this.infodogalsatir_Click);
+            this.infodogalsatir.MouseClick += new System.Windows.Forms.MouseEventHandler(this.infodogalsatir_MouseClick);
+            // 
+            // info
+            // 
+            this.info.AutoSize = true;
+            this.info.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.info.Font = new System.Drawing.Font("Snap ITC", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.info.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.info.Location = new System.Drawing.Point(346, 49);
+            this.info.Name = "info";
+            this.info.Size = new System.Drawing.Size(24, 27);
+            this.info.TabIndex = 5;
+            this.info.Text = "İ";
+            this.info.MouseClick += new System.Windows.Forms.MouseEventHandler(this.info_MouseClick);
             // 
             // tablosifirlaform
             // 
@@ -227,11 +257,11 @@ namespace Karar_Verme_Teknikeri
             // alternatifbilgiform
             // 
             this.alternatifbilgiform.AutoSize = true;
-            this.alternatifbilgiform.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.alternatifbilgiform.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.alternatifbilgiform.ForeColor = System.Drawing.SystemColors.ControlText;
             this.alternatifbilgiform.Location = new System.Drawing.Point(90, 144);
             this.alternatifbilgiform.Name = "alternatifbilgiform";
-            this.alternatifbilgiform.Size = new System.Drawing.Size(103, 20);
+            this.alternatifbilgiform.Size = new System.Drawing.Size(93, 18);
             this.alternatifbilgiform.TabIndex = 16;
             this.alternatifbilgiform.Text = "Alternatifler";
             this.alternatifbilgiform.Visible = false;
@@ -239,11 +269,11 @@ namespace Karar_Verme_Teknikeri
             // alternatifler2
             // 
             this.alternatifler2.AutoSize = true;
-            this.alternatifler2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.alternatifler2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.alternatifler2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.alternatifler2.Location = new System.Drawing.Point(101, 75);
             this.alternatifler2.Name = "alternatifler2";
-            this.alternatifler2.Size = new System.Drawing.Size(108, 20);
+            this.alternatifler2.Size = new System.Drawing.Size(98, 18);
             this.alternatifler2.TabIndex = 15;
             this.alternatifler2.Text = "Alternatifler ";
             this.alternatifler2.Visible = false;
@@ -287,32 +317,16 @@ namespace Karar_Verme_Teknikeri
             this.tusgrubu.Visible = false;
             this.tusgrubu.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
-            // info
+            // cikis
             // 
-            this.info.AutoSize = true;
-            this.info.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.info.Font = new System.Drawing.Font("Snap ITC", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.info.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.info.Location = new System.Drawing.Point(346, 49);
-            this.info.Name = "info";
-            this.info.Size = new System.Drawing.Size(24, 27);
-            this.info.TabIndex = 5;
-            this.info.Text = "İ";
-            this.info.MouseClick += new System.Windows.Forms.MouseEventHandler(this.info_MouseClick);
-            // 
-            // infodogalsatir
-            // 
-            this.infodogalsatir.AutoSize = true;
-            this.infodogalsatir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.infodogalsatir.Font = new System.Drawing.Font("Snap ITC", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.infodogalsatir.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.infodogalsatir.Location = new System.Drawing.Point(347, 103);
-            this.infodogalsatir.Name = "infodogalsatir";
-            this.infodogalsatir.Size = new System.Drawing.Size(24, 27);
-            this.infodogalsatir.TabIndex = 6;
-            this.infodogalsatir.Text = "İ";
-            this.infodogalsatir.Click += new System.EventHandler(this.infodogalsatir_Click);
-            this.infodogalsatir.MouseClick += new System.Windows.Forms.MouseEventHandler(this.infodogalsatir_MouseClick);
+            this.cikis.Location = new System.Drawing.Point(107, 12);
+            this.cikis.Name = "cikis";
+            this.cikis.Size = new System.Drawing.Size(95, 40);
+            this.cikis.TabIndex = 11;
+            this.cikis.Text = "Çıkış";
+            this.cikis.UseVisualStyleBackColor = true;
+            this.cikis.Visible = false;
+            this.cikis.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cikis_MouseClick);
             // 
             // geri
             // 
@@ -324,17 +338,6 @@ namespace Karar_Verme_Teknikeri
             this.geri.UseVisualStyleBackColor = true;
             this.geri.Visible = false;
             this.geri.MouseClick += new System.Windows.Forms.MouseEventHandler(this.geri_MouseClick);
-            // 
-            // cikis
-            // 
-            this.cikis.Location = new System.Drawing.Point(107, 12);
-            this.cikis.Name = "cikis";
-            this.cikis.Size = new System.Drawing.Size(95, 40);
-            this.cikis.TabIndex = 11;
-            this.cikis.Text = "Çıkış";
-            this.cikis.UseVisualStyleBackColor = true;
-            this.cikis.Visible = false;
-            this.cikis.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cikis_MouseClick);
             // 
             // anaform
             // 
@@ -349,7 +352,6 @@ namespace Karar_Verme_Teknikeri
             this.Controls.Add(this.alfadegeribilgi);
             this.Controls.Add(this.doğalsutunbilgi);
             this.Controls.Add(this.yapibilgi);
-            this.Controls.Add(this.alfadegeri);
             this.Controls.Add(this.sutunbilgi);
             this.Controls.Add(this.sutunadedi);
             this.Controls.Add(this.satiradedi);
@@ -359,7 +361,6 @@ namespace Karar_Verme_Teknikeri
             this.Controls.Add(this.tusgrubu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "anaform";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Belirsizlik Altında Karar Verme Teknikleri Hesaplama [Ömer Faruk Duzcan -- Şeyma " +
     "Nur Karadağ -- Aydın Bayramov]";
             ((System.ComponentModel.ISupportInitialize)(this.satiradedi)).EndInit();
@@ -380,7 +381,7 @@ namespace Karar_Verme_Teknikeri
         private System.Windows.Forms.NumericUpDown satiradedi;
         private System.Windows.Forms.NumericUpDown sutunadedi;
         private System.Windows.Forms.Label sutunbilgi;
-        private System.Windows.Forms.TextBox alfadegeri;
+        private System.Windows.Forms.TextBox alfag;
         private System.Windows.Forms.Label yapibilgi;
         private System.Windows.Forms.Label doğalsutunbilgi;
         private System.Windows.Forms.Label alfadegeribilgi;

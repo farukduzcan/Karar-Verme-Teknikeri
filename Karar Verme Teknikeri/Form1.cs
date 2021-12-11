@@ -66,10 +66,9 @@ namespace Karar_Verme_Teknikeri
                 left = 100;
             }
         }
-
+        
         private void tablobuton_Click(object sender, EventArgs e)
         {
-            
             if (satiradedi.Value >0)
             {
                 if (sutunadedi.Value>0)
@@ -78,64 +77,72 @@ namespace Karar_Verme_Teknikeri
                     {
                         if (dogaldurumsatir.SelectedIndex != -1)
                         {
-                            if (alfadegeri.TextLength != 0)
+                            if (Convert.ToDouble (alfag.Text)> 0)
                             {
-                                KutuOlustur();
-                                satiradedi.Visible = false;
-                                sutunadedi.Visible = false;
-                                yapitipi.Visible = false;
-                                tablobuton.Visible = false;
-                                dogaldurumsatir.Visible = false;
-                                hesapbuton.Visible = true;
-                                alfadegeri.Visible = false;
-                                satirbilgi.Visible = false;
-                                sutunbilgi.Visible = false;
-                                yapibilgi.Visible = false;
-                                doğalsutunbilgi.Visible = false;
-                                alfadegeribilgi.Visible = false;
-                                hesapbuton.Visible = true;
-                                groupBox1.Visible = false;
-                                tablosifirlaform.Visible = true;
-                                sayisifirlaform.Visible = true;
-                                dogaldurumbilgiform.Visible = true;
-                                tusgrubu.Visible = true;
-                                geri.Visible = true;
-                                cikis.Visible = true;
-                                if (dogaldurumsatir.SelectedIndex == 0)
+                                if (Convert.ToDouble(alfag.Text)< 1)
                                 {
-                                    TextKutu[0, 0].Visible = false;
-                                    alternatifler2.Visible = true;
-                                    for (int j = 1; j < sutun; j++)
+                                    KutuOlustur();
+                                    satiradedi.Visible = false;
+                                    sutunadedi.Visible = false;
+                                    yapitipi.Visible = false;
+                                    tablobuton.Visible = false;
+                                    dogaldurumsatir.Visible = false;
+                                    hesapbuton.Visible = true;
+                                    alfag.Visible = false;
+                                    satirbilgi.Visible = false;
+                                    sutunbilgi.Visible = false;
+                                    yapibilgi.Visible = false;
+                                    doğalsutunbilgi.Visible = false;
+                                    alfadegeribilgi.Visible = false;
+                                    hesapbuton.Visible = true;
+                                    groupBox1.Visible = false;
+                                    tablosifirlaform.Visible = true;
+                                    sayisifirlaform.Visible = true;
+                                    dogaldurumbilgiform.Visible = true;
+                                    tusgrubu.Visible = true;
+                                    geri.Visible = true;
+                                    cikis.Visible = true;
+                                    if (dogaldurumsatir.SelectedIndex == 0)
                                     {
-                                        TextKutu[0, j].BackColor = Color.WhiteSmoke;
-                                    }
-                                    for (int j = 1; j < satir; j++)
-                                    {
-                                        TextKutu[j, 0].BackColor = Color.WhiteSmoke;
-                                    }
-                                }
-                                else if (dogaldurumsatir.SelectedIndex == 1)
-                                {
-                                    TextKutu[0, 0].Visible = false;
-                                    TextKutu[1, 0].Visible = false;
-                                    alternatifbilgiform.Visible = true;
-                                    for (int i = 0; i<2; i++)
-                                    {
-                                        for (int j = 1; j<sutun;j++)
+                                        TextKutu[0, 0].Visible = false;
+                                        alternatifler2.Visible = true;
+                                        for (int j = 1; j < sutun; j++)
                                         {
-                                            TextKutu[i, j].BackColor = Color.WhiteSmoke;
+                                            TextKutu[0, j].BackColor = Color.WhiteSmoke;
                                         }
-                                        for (int j = 2; j < satir; j++)
+                                        for (int j = 1; j < satir; j++)
                                         {
                                             TextKutu[j, 0].BackColor = Color.WhiteSmoke;
                                         }
                                     }
+                                    else if (dogaldurumsatir.SelectedIndex == 1)
+                                    {
+                                        TextKutu[0, 0].Visible = false;
+                                        TextKutu[1, 0].Visible = false;
+                                        alternatifbilgiform.Visible = true;
+                                        for (int i = 0; i < 2; i++)
+                                        {
+                                            for (int j = 1; j < sutun; j++)
+                                            {
+                                                TextKutu[i, j].BackColor = Color.Lavender;
+                                            }
+                                            for (int j = 2; j < satir; j++)
+                                            {
+                                                TextKutu[j, 0].BackColor = Color.Lavender;
+                                            }
+                                        }
+                                
+                                    }
 
+                                }
+                                else
+                                {
+                                    MessageBox.Show("1'den küçük bir Alfa değeri giriniz!", "HATA");
                                 }
                             }
                             else
                             {
-                                MessageBox.Show("Alfa Değeri Girilmedi!", "HATA");
+                                MessageBox.Show("0'dan Büyük bir Alfa değeri giriniz!", "HATA");
                             }
 
                         }
@@ -309,8 +316,8 @@ namespace Karar_Verme_Teknikeri
                                     hurwicssatirbuyuk = hurwicsbuyuk;
                                     hurwicssatirkucuk = hurwicskucuk;
                                     /*MessageBox.Show("Sonuncu Sütuna geldim ve bu satırda ki en büyük sayı " + hurwicssatirbuyuk+" en küçük sayı ise "+hurwicssatirkucuk);*/
-                                    alfaeksi = 1 - Convert.ToDouble(alfadegeri.Text);
-                                    alfaartı = Convert.ToDouble(alfadegeri.Text);
+                                    alfaeksi = 1 - Convert.ToDouble(alfag.Text);
+                                    alfaartı = Convert.ToDouble(alfag.Text);
                                     /*MessageBox.Show("Şuan ki alfa değerim " + alfaartı+" ve 1 alfa değerim "+alfaeksi);*/
                                     hurwicsdegeri = (alfaartı * hurwicssatirbuyuk) + (hurwicssatirkucuk * alfaeksi);
                                     /*MessageBox.Show("Şuan ki hurwicsdeğeri değerim " + hurwicsdegeri);*/
@@ -535,8 +542,8 @@ namespace Karar_Verme_Teknikeri
                                     hurwicssatirbuyuk = hurwicsbuyuk;
                                     hurwicssatirkucuk = hurwicskucuk;
                                     /*MessageBox.Show("Sonuncu Sütuna geldim ve bu satırda ki en büyük sayı " + hurwicssatirbuyuk+" en küçük sayı ise "+hurwicssatirkucuk);*/
-                                    alfaeksi = 1 - Convert.ToDouble(alfadegeri.Text);
-                                    alfaartı = Convert.ToDouble(alfadegeri.Text);
+                                    alfaeksi = 1 - Convert.ToDouble(alfag.Text);
+                                    alfaartı = Convert.ToDouble(alfag.Text);
                                     /*MessageBox.Show("Şuan ki alfa değerim " + alfaartı+" ve 1 alfa değerim "+alfaeksi);*/
                                     hurwicsdegeri = (alfaartı * hurwicssatirbuyuk) + (hurwicssatirkucuk * alfaeksi);
                                     /*MessageBox.Show("Şuan ki hurwicsdeğeri değerim " + hurwicsdegeri);*/
@@ -793,8 +800,8 @@ namespace Karar_Verme_Teknikeri
                                     hurwicssatirbuyuk = hurwicsbuyuk;
                                     hurwicssatirkucuk = hurwicskucuk;
                                     /*MessageBox.Show("Sonuncu Sütuna geldim ve bu satırda ki en büyük sayı " + hurwicssatirbuyuk+" en küçük sayı ise "+hurwicssatirkucuk);*/
-                                    alfaeksi = 1 - Convert.ToDouble(alfadegeri.Text);
-                                    alfaartı = Convert.ToDouble(alfadegeri.Text);
+                                    alfaeksi = 1 - Convert.ToDouble(alfag.Text);
+                                    alfaartı = Convert.ToDouble(alfag.Text);
                                     /*MessageBox.Show("Şuan ki alfa değerim " + alfaartı+" ve 1 alfa değerim "+alfaeksi);*/
                                     hurwicsdegeri = (alfaartı * hurwicssatirkucuk) + (hurwicssatirbuyuk * alfaeksi);
                                     /*MessageBox.Show("Şuan ki hurwicsdeğeri değerim " + hurwicsdegeri);*/
@@ -828,8 +835,8 @@ namespace Karar_Verme_Teknikeri
                                     hurwicssatirbuyuk = hurwicsbuyuk;
                                     hurwicssatirkucuk = hurwicskucuk;
                                     /*MessageBox.Show("Sonuncu Sütuna geldim ve bu satırda ki en büyük sayı " + hurwicssatirbuyuk+" en küçük sayı ise "+hurwicssatirkucuk);*/
-                                    alfaeksi = 1 - Convert.ToDouble(alfadegeri.Text);
-                                    alfaartı = Convert.ToDouble(alfadegeri.Text);
+                                    alfaeksi = 1 - Convert.ToDouble(alfag.Text);
+                                    alfaartı = Convert.ToDouble(alfag.Text);
                                     /*MessageBox.Show("Şuan ki alfa değerim " + alfaartı+" ve 1 alfa değerim "+alfaeksi);*/
                                     hurwicsdegeri = (alfaartı * hurwicssatirkucuk) + (hurwicssatirbuyuk * alfaeksi);
                                     /*MessageBox.Show("Şuan ki hurwicsdeğeri değerim " + hurwicsdegeri);*/
@@ -1074,8 +1081,8 @@ namespace Karar_Verme_Teknikeri
                                     hurwicssatirbuyuk = hurwicsbuyuk;
                                     hurwicssatirkucuk = hurwicskucuk;
                                     /*MessageBox.Show("Sonuncu Sütuna geldim ve bu satırda ki en büyük sayı " + hurwicssatirbuyuk+" en küçük sayı ise "+hurwicssatirkucuk);*/
-                                    alfaeksi = 1 - Convert.ToDouble(alfadegeri.Text);
-                                    alfaartı = Convert.ToDouble(alfadegeri.Text);
+                                    alfaeksi = 1 - Convert.ToDouble(alfag.Text);
+                                    alfaartı = Convert.ToDouble(alfag.Text);
                                     /*MessageBox.Show("Şuan ki alfa değerim " + alfaartı+" ve 1 alfa değerim "+alfaeksi);*/
                                     hurwicsdegeri = (alfaartı * hurwicssatirkucuk) + (hurwicssatirbuyuk * alfaeksi);
                                     /*MessageBox.Show("Şuan ki hurwicsdeğeri değerim " + hurwicsdegeri);*/
@@ -1109,8 +1116,8 @@ namespace Karar_Verme_Teknikeri
                                     hurwicssatirbuyuk = hurwicsbuyuk;
                                     hurwicssatirkucuk = hurwicskucuk;
                                     /*MessageBox.Show("Sonuncu Sütuna geldim ve bu satırda ki en büyük sayı " + hurwicssatirbuyuk+" en küçük sayı ise "+hurwicssatirkucuk);*/
-                                    alfaeksi = 1 - Convert.ToDouble(alfadegeri.Text);
-                                    alfaartı = Convert.ToDouble(alfadegeri.Text);
+                                    alfaeksi = 1 - Convert.ToDouble(alfag.Text);
+                                    alfaartı = Convert.ToDouble(alfag.Text);
                                     /*MessageBox.Show("Şuan ki alfa değerim " + alfaartı+" ve 1 alfa değerim "+alfaeksi);*/
                                     hurwicsdegeri = (alfaartı * hurwicssatirkucuk) + (hurwicssatirbuyuk * alfaeksi);
                                     /*MessageBox.Show("Şuan ki hurwicsdeğeri değerim " + hurwicsdegeri);*/
@@ -1312,6 +1319,10 @@ namespace Karar_Verme_Teknikeri
         private void cikis_MouseClick(object sender, MouseEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void alfadegeri_KeyPress(object sender, KeyPressEventArgs e)
+        {
         }
     }
 }
