@@ -21,12 +21,10 @@ namespace Karar_Verme_Teknikeri
         int sutun;
         int yapi;
         int dogaldurum;
-        
         private void satiradedi_ValueChanged(object sender, EventArgs e)
         {
             satir = Convert.ToInt32(satiradedi.Value);
         }
-
         private void sutunadedi_ValueChanged(object sender, EventArgs e)
         {
             sutun = Convert.ToInt32(sutunadedi.Value);
@@ -42,7 +40,6 @@ namespace Karar_Verme_Teknikeri
             satir = satir + (Convert.ToInt32(dogaldurumsatir.SelectedItem));
             sutun = sutun + 1;
         }
-    
         private void KutuOlustur()
         {
             TextKutu = new TextBox[satir , sutun];
@@ -217,7 +214,6 @@ namespace Karar_Verme_Teknikeri
                                 }
                             }
                         }
-
                         /*kötümserlik hesaplama*/
                         kotumsersatirbuyuk = Convert.ToInt32(TextKutu[1, 1].Text);
                         for (int i = 1; i < 2; i++)
@@ -238,8 +234,6 @@ namespace Karar_Verme_Teknikeri
                             for (int j = 1; j < sutun; j++)
                             {
                                 kotumser = Convert.ToInt32(TextKutu[i, j].Text);
-
-
                                 if (kotumser < kotumserdeger)
                                 {
                                     kotumserdeger = kotumser;
@@ -507,7 +501,6 @@ namespace Karar_Verme_Teknikeri
                                     pismanliksutunenbuyuk = pismanliksutunbuyuk;
                                     int l;
                                     l = i;
-
                                     for (int m = 2; m < satir; m++)
                                     {
                                         pismanliksutunfark = pismanliksutunenbuyuk - Convert.ToInt32(TextKutu[m, l].Text);
@@ -515,7 +508,6 @@ namespace Karar_Verme_Teknikeri
                                     }
                                 }
                             }
-
                         }
                         pismanliktablosubuyuk = pismanliktablo[2, 1];
                         for (int i = 2; i < 3; i++)
@@ -567,10 +559,8 @@ namespace Karar_Verme_Teknikeri
                                                                                         "--> Kötümserlik Ölçütüne Göre Verilen Karar: \n     ➥ " + kotumseralternatif + " (" + kotumsersatirbuyuk + ") \n\n" +
                                                                                         "--> Eş Olasılık Ölçütüne Göre Verilen Karar: \n     ➥ " + esolasilikalternatif + " (" + esolasılıkdegerbuyuk + ") \n\n" +
                                                                                         "--> Hurwics Ölçütüne Göre Verilen Karar: \n     ➥ " + hurwicsalternatif + " (" + hurwicssonuc + ")\n\n" +
-                                                                                        "--> Pişmanlık Ölçütüne Göre Verilen Karar: \n     ➥ " + pismanlikalternatif + " (" + pismanliktablosusatirkucuk + ")", "Sonuçlar");
-                        
+                                                                                        "--> Pişmanlık Ölçütüne Göre Verilen Karar: \n     ➥ " + pismanlikalternatif + " (" + pismanliktablosusatirkucuk + ")", "Sonuçlar");                        
                     }
-
                 }
                 // ----------------------MALİYET YAPILI---------------------------
                 else if (yapi == 1)
@@ -686,7 +676,6 @@ namespace Karar_Verme_Teknikeri
                                     hurwicssonuc = hurwicsdegeri;
                                     hurwicsalternatif = TextKutu[i, 0].Text;
                                 }
-
                             }
                         }
                         for (int i = 1; i < satir; i++)
@@ -721,7 +710,6 @@ namespace Karar_Verme_Teknikeri
                         }
                         /* Pişmanlık Değeri Hesaplama */
                         int[,] pismanliktablo = new int[satir, sutun];
-
                         for (int i = 1; i < sutun; i++)
                         {
                             pismanliksutunbuyuk = Convert.ToInt32(TextKutu[1, i].Text);
@@ -738,7 +726,6 @@ namespace Karar_Verme_Teknikeri
                                     pismanliksutunenbuyuk = pismanliksutunbuyuk;
                                     int l;
                                     l = i;
-
                                     for (int m = 1; m < satir; m++)
                                     {
                                         pismanliksutunfark = Convert.ToInt32(TextKutu[m, l].Text) - pismanliksutunenbuyuk;
@@ -782,7 +769,6 @@ namespace Karar_Verme_Teknikeri
                                 if (pismanliktablosudeğeri > pismanliktablosubuyuk)
                                 {
                                     pismanliktablosubuyuk = pismanliktablosudeğeri;
-
                                 }
                                 if (j == sutun - 1)
                                 {
@@ -799,7 +785,6 @@ namespace Karar_Verme_Teknikeri
                                                                 "--> Eş Olasılık Ölçütüne Göre Verilen Karar: \n     ➥ " + esolasilikalternatif + " (" + esolasılıkdegerbuyuk + ") \n\n" +
                                                                 "--> Hurwics Ölçütüne Göre Verilen Karar: \n     ➥ " + hurwicsalternatif + " (" + hurwicssonuc + ")\n\n" +
                                                                 "--> Pişmanlık Ölçütüne Göre Verilen Karar: \n     ➥ " + pismanlikalternatif + " (" + pismanliktablosusatirkucuk + ")", "Sonuçlar");
-                        
                     }
                     else if (dogaldurum == 1)
                         //------------------------ DOĞAL DURUM SATIR ADEDİ 2 -----------------------------------
@@ -815,7 +800,6 @@ namespace Karar_Verme_Teknikeri
                                     iyimserdeger = iyimser;
                                     iyimseralternatif = TextKutu[i, 0].Text;
                                 }
-
                             }
                         }
                         /*kötümserlik hesaplama*/
@@ -869,7 +853,6 @@ namespace Karar_Verme_Teknikeri
                                 }
                             }
                         }
-
                         for (int i = 2; i < satir; i++)
                         {
                             esolasılık = Convert.ToInt32(TextKutu[i, 1].Text);
@@ -889,9 +872,7 @@ namespace Karar_Verme_Teknikeri
                                 }
                             }
                         }
-
                         /* Hurwics hesaplama */
-
                         for (int i = 2; i < 3; i++)
                         {
                             hurwicsbuyuk = Convert.ToInt32(TextKutu[i, 1].Text);
@@ -919,7 +900,6 @@ namespace Karar_Verme_Teknikeri
                                 }
                             }
                         }
-
                         for (int i = 2; i < satir; i++)
                         {
                             hurwicsbuyuk = Convert.ToInt32(TextKutu[i, 1].Text);
@@ -950,10 +930,8 @@ namespace Karar_Verme_Teknikeri
                                 }
                             }
                         }
-
                         /* Pişmanlık Değeri Hesaplama */
                         int[,] pismanliktablo = new int[satir, sutun];
-
                         for (int i = 1; i < sutun; i++)
                         {
                             pismanliksutunbuyuk = Convert.ToInt32(TextKutu[2, i].Text);
@@ -977,9 +955,7 @@ namespace Karar_Verme_Teknikeri
                                         pismanliktablo[m, l] = pismanliksutunfark;
                                     }
                                 }
-
                             }
-
                         }
                         pismanliktablosubuyuk = pismanliktablo[2, 1];
                         for (int i = 2; i < 3; i++)
@@ -993,7 +969,6 @@ namespace Karar_Verme_Teknikeri
                                 }
                             }
                         }
-
                         pismanliktablosusatirkucuk = pismanliktablo[2, 1];
                         for (int i = 2; i < 3; i++)
                         {
@@ -1007,7 +982,6 @@ namespace Karar_Verme_Teknikeri
                                 }
                             }
                         }
-
                         for (int i = 2; i < satir; i++)
                         {
                             pismanliktablosubuyuk = pismanliktablo[i, 1];
@@ -1038,7 +1012,6 @@ namespace Karar_Verme_Teknikeri
                 }
             }
         }
-
         private void tablosifirlaform_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < satir; i++)
@@ -1048,7 +1021,6 @@ namespace Karar_Verme_Teknikeri
                     TextKutu[i, j].Text = "";
                 }
             }
-
         }
         private void sayisifirlaform_Click(object sender, EventArgs e)
         {
