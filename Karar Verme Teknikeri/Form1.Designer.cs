@@ -202,7 +202,6 @@ namespace Karar_Verme_Teknikeri
             this.groupBox1.Size = new System.Drawing.Size(467, 225);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // infodogalsatir
             // 
@@ -215,7 +214,6 @@ namespace Karar_Verme_Teknikeri
             this.infodogalsatir.Size = new System.Drawing.Size(24, 27);
             this.infodogalsatir.TabIndex = 6;
             this.infodogalsatir.Text = "İ";
-            this.infodogalsatir.Click += new System.EventHandler(this.infodogalsatir_Click);
             this.infodogalsatir.MouseClick += new System.Windows.Forms.MouseEventHandler(this.infodogalsatir_MouseClick);
             // 
             // info
@@ -276,7 +274,6 @@ namespace Karar_Verme_Teknikeri
             this.alternatifler2.TabIndex = 15;
             this.alternatifler2.Text = "Alternatifler ";
             this.alternatifler2.Visible = false;
-            this.alternatifler2.Click += new System.EventHandler(this.alternatifler2_Click);
             // 
             // dogaldurumbilgiform
             // 
@@ -314,7 +311,6 @@ namespace Karar_Verme_Teknikeri
             this.tusgrubu.TabIndex = 19;
             this.tusgrubu.TabStop = false;
             this.tusgrubu.Visible = false;
-            this.tusgrubu.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // cikis
             // 
@@ -360,6 +356,7 @@ namespace Karar_Verme_Teknikeri
             this.Controls.Add(this.tusgrubu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "anaform";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Belirsizlik Altında Karar Verme Teknikleri Hesaplama [Ömer Faruk Duzcan -- Şeyma " +
     "Nur Karadağ -- Aydın Bayramov]";
             ((System.ComponentModel.ISupportInitialize)(this.satiradedi)).EndInit();
