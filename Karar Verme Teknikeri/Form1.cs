@@ -103,11 +103,11 @@ namespace Karar_Verme_Teknikeri
                                             alternatifler2.Visible = true;
                                             for (int j = 1; j < sutun; j++)
                                             {
-                                                TextKutu[0, j].BackColor = Color.WhiteSmoke;
+                                                TextKutu[0, j].BackColor = Color.Lavender;
                                             }
                                             for (int j = 1; j < satir; j++)
                                             {
-                                                TextKutu[j, 0].BackColor = Color.WhiteSmoke;
+                                                TextKutu[j, 0].BackColor = Color.Lavender;
                                             }
                                         }
                                         else if (dogaldurumsatir.SelectedIndex == 1)
@@ -202,6 +202,8 @@ namespace Karar_Verme_Teknikeri
                     if (dogaldurum == 0)
                     {
                         /*iyimserlik hesaplama*/
+                        iyimserdeger = Convert.ToInt32(TextKutu[1, 1].Text);
+                        iyimseralternatif = TextKutu[1, 0].Text;
                         for (int i = 1; i < satir; i++)
                         {
                             for (int j = 1; j < sutun; j++)
@@ -216,6 +218,7 @@ namespace Karar_Verme_Teknikeri
                         }
                         /*kötümserlik hesaplama*/
                         kotumsersatirbuyuk = Convert.ToInt32(TextKutu[1, 1].Text);
+                        kotumseralternatif = TextKutu[1, 0].Text;
                         for (int i = 1; i < 2; i++)
                         {
                             for (int j = 1; j < sutun; j++)
@@ -385,6 +388,9 @@ namespace Karar_Verme_Teknikeri
                     else if (dogaldurum == 1)
                     {
                         /*iyimserlik hesaplama*/
+                        iyimserdeger = Convert.ToInt32(TextKutu[2, 1].Text);
+                        iyimseralternatif = TextKutu[2, 0].Text;
+
                         for (int i = 2; i < satir; i++)
                         {
                             for (int j = 1; j < sutun; j++)
@@ -399,6 +405,7 @@ namespace Karar_Verme_Teknikeri
                         }
                         /*kötümserlik hesaplama*/
                         kotumsersatirbuyuk = Convert.ToInt32(TextKutu[2, 1].Text);
+                        kotumseralternatif = TextKutu[2, 0].Text;
                         for (int i = 2; i < 3; i++)
                         {
                             for (int j = 1; j < sutun; j++)
@@ -569,6 +576,8 @@ namespace Karar_Verme_Teknikeri
                     if (dogaldurum == 0)
                     {
                         /*iyimserlik hesaplama*/
+                        iyimserdeger = Convert.ToInt32(TextKutu[1, 1].Text);
+                        iyimseralternatif = TextKutu[1, 0].Text;
                         for (int i = 1; i < satir; i++)
                         {
                             for (int j = 1; j < sutun; j++)
@@ -583,6 +592,7 @@ namespace Karar_Verme_Teknikeri
                         }
                         /*kötümserlik hesaplama*/
                         kotumsersatirbuyuk = Convert.ToInt32(TextKutu[1, 1].Text);
+                        kotumseralternatif = TextKutu[1, 0].Text;
                         for (int i = 1; i < 2; i++)
                         {
                             for (int j = 1; j < sutun; j++)
@@ -628,6 +638,7 @@ namespace Karar_Verme_Teknikeri
                                 {
                                     esolasılıkdeger = Convert.ToDouble((esolasılıksatir) / (sutun - 1));
                                     esolasılıkdegerbuyuk = esolasılıkdeger;
+                                    esolasilikalternatif = TextKutu[i, 0].Text;
                                 }
                             }
                         }
@@ -790,6 +801,8 @@ namespace Karar_Verme_Teknikeri
                         //------------------------ DOĞAL DURUM SATIR ADEDİ 2 -----------------------------------
                     {
                         /*iyimserlik hesaplama*/
+                        iyimserdeger = Convert.ToInt32(TextKutu[2, 1].Text);
+                        iyimseralternatif = TextKutu[2, 0].Text;
                         for (int i = 2; i < satir; i++)
                         {
                             for (int j = 1; j < sutun; j++)
@@ -803,6 +816,7 @@ namespace Karar_Verme_Teknikeri
                             }
                         }
                         /*kötümserlik hesaplama*/
+                        kotumseralternatif = TextKutu[2, 0].Text;
                         for (int i = 2; i < 3; i++)
                         {
                             for (int j = 1; j < sutun; j++)
